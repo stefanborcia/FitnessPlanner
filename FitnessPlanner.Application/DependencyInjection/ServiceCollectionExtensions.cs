@@ -14,9 +14,6 @@ namespace FitnessPlanner.Application.DependencyInjection
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-            // Register services here when implemented
-            // services.AddScoped<IWorkoutPlanService, WorkoutPlanService>();
-
             return services;
         }
     }
