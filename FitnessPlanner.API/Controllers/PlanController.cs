@@ -16,17 +16,20 @@ namespace FitnessPlanner.API.Controllers
             _workoutService = workoutService;
         }
 
-        [HttpPost("workout")]
-        public IActionResult GenerateWorkoutPlan([FromBody] PlanRequestDto request)
+        [HttpPost("save-workout")]
+        public async Task<IActionResult> SaveWorkoutPlan([FromBody] PlanRequestDto request)
         {
-            if (request == null)
+            try
             {
-                return BadRequest("Request object is null");
+                var message = await _workoutService.GenerateAndSaveWorkoutPlanAsync(request);
+                return Ok(new { message });
             }
-
-            var plan = _workoutService.GenerateWorkoutPlan(request.Goal, request.BodyType);
-            return Ok(plan);
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
+
 
     }
 }
