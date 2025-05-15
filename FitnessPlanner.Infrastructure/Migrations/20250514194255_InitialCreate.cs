@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -15,7 +14,8 @@ namespace FitnessPlanner.Infrastructure.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Goal = table.Column<int>(type: "int", nullable: false),
@@ -30,30 +30,26 @@ namespace FitnessPlanner.Infrastructure.Migrations
                 name: "WorkoutPlans",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_WorkoutPlans", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_WorkoutPlans_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Exercises",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Reps = table.Column<int>(type: "int", nullable: false),
                     Sets = table.Column<int>(type: "int", nullable: false),
-                    WorkoutPlanId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    WorkoutPlanId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,11 +65,6 @@ namespace FitnessPlanner.Infrastructure.Migrations
                 name: "IX_Exercises_WorkoutPlanId",
                 table: "Exercises",
                 column: "WorkoutPlanId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_WorkoutPlans_UserId",
-                table: "WorkoutPlans",
-                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -83,10 +74,10 @@ namespace FitnessPlanner.Infrastructure.Migrations
                 name: "Exercises");
 
             migrationBuilder.DropTable(
-                name: "WorkoutPlans");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "WorkoutPlans");
         }
     }
 }

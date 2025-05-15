@@ -22,8 +22,7 @@ namespace FitnessPlanner.API.Controllers
         {
             try
             {
-                var fakeUserId = Guid.Parse("1"); // Replace later
-                var result = await _workoutService.GenerateAndSaveWorkoutPlanAsync(request, fakeUserId);
+                var result = await _workoutService.GenerateAndSaveWorkoutPlanAsync(request, request.UserId!);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -31,6 +30,7 @@ namespace FitnessPlanner.API.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
+
 
         // READ all
         [HttpGet]
@@ -42,7 +42,7 @@ namespace FitnessPlanner.API.Controllers
 
         // READ by ID
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPlanById(Guid id)
+        public async Task<IActionResult> GetPlanById(int id)
         {
             var plan = await _workoutService.GetPlanByIdAsync(id);
             if (plan == null) return NotFound();
@@ -51,7 +51,7 @@ namespace FitnessPlanner.API.Controllers
 
         // UPDATE
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePlan(Guid id, [FromBody] WorkoutPlanDto updatedPlan)
+        public async Task<IActionResult> UpdatePlan(int id, [FromBody] WorkoutPlanDto updatedPlan)
         {
             if (id != updatedPlan.Id) return BadRequest("ID mismatch");
 
@@ -63,7 +63,7 @@ namespace FitnessPlanner.API.Controllers
 
         // DELETE
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePlan(Guid id)
+        public async Task<IActionResult> DeletePlan(int id)
         {
             var result = await _workoutService.DeletePlanAsync(id);
             if (!result) return NotFound();

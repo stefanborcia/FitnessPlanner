@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessPlanner.Domain", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessPlanner.Infrastructure", "FitnessPlanner.Infrastructure\FitnessPlanner.Infrastructure.csproj", "{210C6774-D802-4187-8D91-8EEE613F34A7}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "FitnessPlanner.UI", "FitnessPlanener.UI\FitnessPlanner.UI.esproj", "{E8182CB3-F756-28F8-B59F-DA8F3788D062}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "FitnessPlanner.UI", "FitnessPlanner.UI\FitnessPlanner.UI.esproj", "{E8182CB3-F756-28F8-B59F-DA8F3788D062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

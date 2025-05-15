@@ -23,7 +23,6 @@ namespace FitnessPlanner.Infrastructure.Services
         {
             var plan = new WorkoutPlan
             {
-                Id = Guid.NewGuid(),
                 Name = $"{goal} Plan for {bodyType}",
                 Exercises = new List<Exercise>()
             };
@@ -47,11 +46,10 @@ namespace FitnessPlanner.Infrastructure.Services
             return _mapper.Map<WorkoutPlanDto>(plan);
         }
 
-        public async Task<WorkoutPlanDto> GenerateAndSaveWorkoutPlanAsync(PlanRequestDto request, Guid userId)
+        public async Task<WorkoutPlanDto> GenerateAndSaveWorkoutPlanAsync(PlanRequestDto request, string userId)
         {
             var plan = new WorkoutPlan
             {
-                Id = Guid.NewGuid(),
                 Name = $"{request.Goal} Plan for {request.BodyType}",
                 UserId = userId,
                 Exercises = new List<Exercise>()
@@ -86,7 +84,7 @@ namespace FitnessPlanner.Infrastructure.Services
         }
 
         // ✅ GET BY ID
-        public async Task<WorkoutPlanDto?> GetPlanByIdAsync(Guid id)
+        public async Task<WorkoutPlanDto?> GetPlanByIdAsync(int id)
         {
             var plan = await _repository.GetByIdAsync(id);
             return plan == null ? null : _mapper.Map<WorkoutPlanDto>(plan);
@@ -108,7 +106,7 @@ namespace FitnessPlanner.Infrastructure.Services
         }
 
         // ✅ DELETE
-        public async Task<bool> DeletePlanAsync(Guid id)
+        public async Task<bool> DeletePlanAsync(int id)
         {
             var plan = await _repository.GetByIdAsync(id);
             if (plan == null) return false;

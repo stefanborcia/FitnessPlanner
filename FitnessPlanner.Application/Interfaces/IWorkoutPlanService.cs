@@ -7,10 +7,10 @@ namespace FitnessPlanner.Application.Interfaces
     public interface IWorkoutPlanService
     {
         WorkoutPlanDto GenerateWorkoutPlan(FitnessGoal goal, BodyType bodyType);
-        Task<WorkoutPlanDto> GenerateAndSaveWorkoutPlanAsync(PlanRequestDto request, Guid userId);
+        Task<WorkoutPlanDto> GenerateAndSaveWorkoutPlanAsync(PlanRequestDto request, string userId);
         Task<List<WorkoutPlanDto>> GetAllPlansAsync();
-        Task<WorkoutPlanDto?> GetPlanByIdAsync(Guid id);
+        Task<WorkoutPlanDto?> GetPlanByIdAsync(int id);
         Task<bool> UpdatePlanAsync(WorkoutPlanDto plan);
-        Task<bool> DeletePlanAsync(Guid id);
+        Task<bool> DeletePlanAsync(int id);
     }
 }

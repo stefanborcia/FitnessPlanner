@@ -1,0 +1,31 @@
+<h2>Create Workout Plan</h2>
+<form [formGroup]="planForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input formControlName="name" type="text" placeholder="Enter Plan Name" />
+  </label>
+  <br />
+
+  <label>
+    Goal:
+    <select formControlName="goal">
+      <option value="LoseWeight">Lose Weight</option>
+      <option value="BuildMuscle">Build Muscle</option>
+      <option value="Tone">Tone</option>
+    </select>
+  </label>
+  <br />
+
+  <label>
+    Body Type:
+    <select formControlName="bodyType">
+      <option value="Ectomorph">Ectomorph</option>
+      <option value="Mesomorph">Mesomorph</option>
+      <option value="Endomorph">Endomorph</option>
+    </select>
+  </label>
+  <br />
+
+  <button type="submit" [disabled]="planForm.invalid">Save Plan</button>
+</form>
+<p>{{ message }}</p>

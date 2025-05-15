@@ -1,11 +1,17 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export type Goal = 'BuildMuscle' | 'LoseWeight' | 'Tone';
+export type BodyType = 'Ectomorph' | 'Mesomorph' | 'Endomorph';
+
 export interface PlanRequestDto {
-  goal: number; // Use enums or constants if needed
-  bodyType: number;
+  goal: string;        // "BuildMuscle", "LoseWeight", "Tone"
+  bodyType: string;    // "Ectomorph", "Mesomorph", "Endomorph"
+  name: string;        // The name of the workout plan
+  userId: string;      // Use a valid UUID
 }
+
 
 export interface ExerciseDto {
   name: string;
@@ -20,10 +26,10 @@ export interface WorkoutPlanDto {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // ✅ Ensures singleton without needing providers
 })
 export class WorkoutPlanService {
-  private baseUrl = 'http://localhost:5258/api/plan'; // Change if your API base URL is different
+  private baseUrl = 'http://localhost:5258/api/plan';
 
   constructor(private http: HttpClient) { }
 
@@ -32,10 +38,10 @@ export class WorkoutPlanService {
   }
 
   savePlan(request: PlanRequestDto): Observable<any> {
-    return this.http.post(`${this.baseUrl}/save-workout?userId=00000000-0000-0000-0000-000000000001`, request);
+    return this.http.post(`${this.baseUrl}`, request); 
   }
 
   getAllPlans(): Observable<WorkoutPlanDto[]> {
-    return this.http.get<WorkoutPlanDto[]>(`${this.baseUrl}`);
+    return this.http.get<WorkoutPlanDto[]>(this.baseUrl);
   }
 }
