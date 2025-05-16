@@ -1,13 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreatePlanComponent } from './components/create-plan/create-plan.component';
-import { WorkoutPlanComponent } from './components/workout-plan/workout-plan.component';
-
+import { CreatePlanComponent } from './features/plans/create-plan/create-plan.component';
+import { WorkoutPlanComponent } from './features/plans/workout-plan/workout-plan.component';
+import { PlanListComponent } from './features/plans/plan-list/plan-list.component';
+import { PlanDetailComponent } from './features/plans/plan-detail/plan-detail.component';
 const routes: Routes = [
-  { path: 'create', component: CreatePlanComponent },
-  { path: 'plans', component: WorkoutPlanComponent },
-  { path: '', redirectTo: 'plans', pathMatch: 'full' }, // Default to "View Plans"
-  { path: '**', redirectTo: 'plans' } // Fallback for unknown routes
+  {
+    path: '',
+    loadComponent: () =>
+      import('./features/home/home.component').then(m => m.HomeComponent),
+    pathMatch: 'full' // Very important for root route
+  },
+  {
+    path: 'create',
+    loadComponent: () =>
+      import('./features/plans/create-plan/create-plan.component').then(m => m.CreatePlanComponent)
+  },
+  {
+    path: 'plans',
+    loadComponent: () =>
+      import('./features/plans/plan-list/plan-list.component').then(m => m.PlanListComponent)
+  }
 ];
 
 @NgModule({

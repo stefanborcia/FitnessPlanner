@@ -1,8 +1,10 @@
 <nav>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> |
   <a routerLink="/create" routerLinkActive="active">Create Plan</a> |
   <a routerLink="/plans" routerLinkActive="active">View Plans</a>
 </nav>
-
 <hr />
 
-<router-outlet></router-outlet>
+<main class="content">
+  <router-outlet></router-outlet>
+</main>

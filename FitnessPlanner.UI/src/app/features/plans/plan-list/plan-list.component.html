@@ -1,0 +1,8 @@
+<h2>Workout Plans</h2>
+<ul>
+  <li *ngFor="let plan of plans">
+    <a [routerLink]="['/plans', plan.id]">{{ plan.name }}</a>
+  </li>
+</ul>
+
+<p *ngIf="message">{{ message }}</p>

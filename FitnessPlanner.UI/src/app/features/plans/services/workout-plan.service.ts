@@ -36,7 +36,9 @@ export class WorkoutPlanService {
   generatePlan(request: PlanRequestDto): Observable<WorkoutPlanDto> {
     return this.http.post<WorkoutPlanDto>(`${this.baseUrl}/workout`, request);
   }
-
+  getPlanById(id: string): Observable<WorkoutPlanDto> {
+    return this.http.get<WorkoutPlanDto>(`${this.baseUrl}/${id}`);
+  }
   savePlan(request: PlanRequestDto): Observable<any> {
     return this.http.post(`${this.baseUrl}`, request); 
   }

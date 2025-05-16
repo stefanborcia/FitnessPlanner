@@ -1,0 +1,21 @@
+<nav>
+  <a routerLink="/" routerLinkActive="active">Home</a> |
+
+  <div class="dropdown">
+    <span>Workout Plans</span>
+    <ul>
+      <li><a [routerLink]="['/plans/body', 'Ectomorph']">Ectomorph</a></li>
+      <li><a [routerLink]="['/plans/body', 'Mesomorph']">Mesomorph</a></li>
+      <li><a [routerLink]="['/plans/body', 'Endomorph']">Endomorph</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <span>Exercises</span>
+    <ul>
+      <li><a [routerLink]="['/exercises/goal', 'LoseWeight']">Lose Weight</a></li>
+      <li><a [routerLink]="['/exercises/goal', 'BuildMuscle']">Build Muscle</a></li>
+      <li><a [routerLink]="['/exercises/goal', 'Tone']">Tone</a></li>
+    </ul>
+  </div>
+</nav>

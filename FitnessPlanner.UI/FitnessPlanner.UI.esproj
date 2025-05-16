@@ -7,4 +7,8 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\FitnessPlanener.UI\browser\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\core\models\" />
+    <Folder Include="src\app\core\services\" />
+  </ItemGroup>
 </Project>

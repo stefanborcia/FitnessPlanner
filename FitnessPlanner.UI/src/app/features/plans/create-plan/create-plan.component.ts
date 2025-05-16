@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { WorkoutPlanService, PlanRequestDto } from '../../services/workout-plan.service';
+import { WorkoutPlanService, PlanRequestDto } from '../services/workout-plan.service';
 
 @Component({
   selector: 'app-create-plan',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WorkoutPlanService, WorkoutPlanDto } from '../../services/workout-plan.service';
+import { WorkoutPlanService, WorkoutPlanDto } from '../services/workout-plan.service';
 
 @Component({
   selector: 'app-workout-plan',
