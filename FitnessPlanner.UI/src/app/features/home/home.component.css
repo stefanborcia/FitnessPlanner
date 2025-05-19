@@ -1,0 +1,12 @@
+.home-wrapper {
+  background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 60px 15px;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+}

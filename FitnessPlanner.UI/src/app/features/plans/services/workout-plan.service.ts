@@ -9,7 +9,9 @@ export interface PlanRequestDto {
   goal: string;        // "BuildMuscle", "LoseWeight", "Tone"
   bodyType: string;    // "Ectomorph", "Mesomorph", "Endomorph"
   name: string;        // The name of the workout plan
-  userId: string;      // Use a valid UUID
+  userId: string;
+  exercises?: ExerciseDto[];
+  items: PlanItem[];
 }
 
 
@@ -18,7 +20,12 @@ export interface ExerciseDto {
   reps: number;
   sets: number;
 }
-
+export interface MealDto {
+  type: 'meal';
+  name: string;
+  calories: number;
+}
+export type PlanItem = ExerciseDto | MealDto;
 export interface WorkoutPlanDto {
   id: string;
   name: string;
@@ -26,7 +33,7 @@ export interface WorkoutPlanDto {
 }
 
 @Injectable({
-  providedIn: 'root' // ✅ Ensures singleton without needing providers
+  providedIn: 'root'
 })
 export class WorkoutPlanService {
   private baseUrl = 'http://localhost:5258/api/plan';

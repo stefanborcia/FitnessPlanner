@@ -1,0 +1,11 @@
+.list-group {
+  min-height: 300px;
+  background: #f8f9fa;
+  border: 1px dashed #ccc;
+  padding: 10px;
+}
+
+.list-group-item {
+  margin-bottom: 5px;
+  cursor: move;
+}

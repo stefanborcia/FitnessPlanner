@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <h2>Create Your Custom Plan (Exercises + Meals)</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Exercises</h4>
+      <div cdkDropList [cdkDropListData]="availableExercises" class="list-group">
+        <div class="list-group-item" *ngFor="let exercise of availableExercises" cdkDrag>
+          {{ exercise.name }} ({{ exercise.sets }}x{{ exercise.reps }})
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h4>Meals</h4>
+      <div cdkDropList [cdkDropListData]="availableMeals" class="list-group">
+        <div class="list-group-item" *ngFor="let meal of availableMeals" cdkDrag>
+          {{ meal.name }} - {{ meal.calories }} cal
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h4>Your Custom Plan</h4>
+      <div cdkDropList [cdkDropListData]="customPlanItems" class="list-group" (cdkDropListDropped)="drop($event)">
+        <div class="list-group-item bg-success text-white" *ngFor="let item of customPlanItems">
+          <ng-container *ngIf="isExercise(item)">
+            🏋️ {{ item.name }} ({{ item.sets }}x{{ item.reps }})
+          </ng-container>
+          <ng-container *ngIf="isMeal(item)">
+            🍽️ {{ item.name }} - {{ item.calories }} cal
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

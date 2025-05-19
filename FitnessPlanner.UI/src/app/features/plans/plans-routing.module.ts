@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
-import { CreatePlanComponent } from './create-plan/create-plan.component';
 import { PlanListComponent } from './plan-list/plan-list.component';
 import { PlanDetailComponent } from './plan-detail/plan-detail.component';
+import { CreatePlanComponent } from './create-plan/create-plan.component';
+import { CustomPlanBuilderComponent } from './custom-plan-builder/custom-plan-builder.component';
 
-export const PlansRoutingModule: Routes = [
-  { path: '', component: PlanListComponent },
-  { path: 'create', component: CreatePlanComponent },
-  { path: ':id', component: PlanDetailComponent },
-  {
-    path: 'body/:type', // Ectomorph, Mesomorph, Endomorph
-    loadComponent: () => import('./plan-list/plan-list.component').then(m => m.PlanListComponent)
-  }
+export const plansRoutes: Routes = [
+  { path: 'plans/list', component: PlanListComponent },
+  { path: 'plans/create', component: CreatePlanComponent },
+  { path: 'plans/custom', component: CustomPlanBuilderComponent },
+  { path: ':id', component: PlanDetailComponent }
 ];

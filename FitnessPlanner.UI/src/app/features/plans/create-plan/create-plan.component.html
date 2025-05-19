@@ -1,31 +1,30 @@
 <h2>Create Workout Plan</h2>
-<form [formGroup]="planForm" (ngSubmit)="onSubmit()">
-  <label>
-    Name:
-    <input formControlName="name" type="text" placeholder="Enter Plan Name" />
-  </label>
-  <br />
+<form [formGroup]="planForm" (ngSubmit)="onSubmit()" class="p-3 border rounded bg-light">
+  <div class="mb-3">
+    <label class="form-label">Plan Name</label>
+    <input class="form-control" formControlName="name" type="text" placeholder="Enter Plan Name" />
+  </div>
 
-  <label>
-    Goal:
-    <select formControlName="goal">
+  <div class="mb-3">
+    <label class="form-label">Goal</label>
+    <select class="form-select" formControlName="goal">
+      <option value="">Select a goal</option>
       <option value="LoseWeight">Lose Weight</option>
       <option value="BuildMuscle">Build Muscle</option>
       <option value="Tone">Tone</option>
     </select>
-  </label>
-  <br />
+  </div>
 
-  <label>
-    Body Type:
-    <select formControlName="bodyType">
+  <div class="mb-3">
+    <label class="form-label">Body Type</label>
+    <select class="form-select" formControlName="bodyType">
+      <option value="">Select body type</option>
       <option value="Ectomorph">Ectomorph</option>
       <option value="Mesomorph">Mesomorph</option>
       <option value="Endomorph">Endomorph</option>
     </select>
-  </label>
-  <br />
+  </div>
 
-  <button type="submit" [disabled]="planForm.invalid">Save Plan</button>
+  <button type="submit" class="btn btn-primary" [disabled]="planForm.invalid">Save Plan</button>
 </form>
-<p>{{ message }}</p>
+<p class="mt-3 text-success">{{ message }}</p>

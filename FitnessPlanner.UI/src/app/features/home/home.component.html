@@ -1,19 +1,41 @@
-<h1>Welcome to Fitness Planner</h1>
+<div class="home-wrapper d-flex flex-column align-items-center justify-content-center text-white text-center">
+  <div class="overlay p-4 rounded shadow-lg w-100" style="max-width: 900px;">
+    <h1 class="mb-4 display-4">Your Fitness. Your Plan.</h1>
+    <p class="lead mb-5">Choose the workout plan that fits your lifestyle — Standard, Premium, or fully Personalized.</p>
 
-<section>
-  <h2>Workout Plans by Body Type</h2>
-  <ul>
-    <li><a [routerLink]="['/plans/body', 'Ectomorph']">Ectomorph</a></li>
-    <li><a [routerLink]="['/plans/body', 'Mesomorph']">Mesomorph</a></li>
-    <li><a [routerLink]="['/plans/body', 'Endomorph']">Endomorph</a></li>
-  </ul>
-</section>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card bg-light text-dark h-100 shadow">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Standard Plan</h5>
+            <p class="card-text">Basic access to pre-made workout and meal plans. Great for getting started.</p>
+            <h6 class="mt-auto">€9.99 / month</h6>
+            <button class="btn btn-outline-primary mt-2" (click)="choosePlan('standard')">Choose Standard</button>
+          </div>
+        </div>
+      </div>
 
-<section>
-  <h2>Exercises by Goal</h2>
-  <ul>
-    <li><a [routerLink]="['/exercises/goal', 'LoseWeight']">Lose Weight</a></li>
-    <li><a [routerLink]="['/exercises/goal', 'BuildMuscle']">Build Muscle</a></li>
-    <li><a [routerLink]="['/exercises/goal', 'Tone']">Tone</a></li>
-  </ul>
-</section>
+      <div class="col-md-4">
+        <div class="card bg-warning text-dark h-100 shadow">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Premium Plan</h5>
+            <p class="card-text">Full access to all plans, nutrition guidance, and progress tracking.</p>
+            <h6 class="mt-auto">€19.99 / month</h6>
+            <button class="btn btn-outline-dark mt-2" (click)="choosePlan('premium')">Choose Premium</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card bg-success text-white h-100 shadow">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Personalized Plan</h5>
+            <p class="card-text">Work 1-on-1 with a coach. Custom workouts and meal plans tailored to you.</p>
+            <h6 class="mt-auto">€49.99 / month</h6>
+            <button class="btn btn-outline-light mt-2" (click)="choosePlan('personalized')">Choose Personalized</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
