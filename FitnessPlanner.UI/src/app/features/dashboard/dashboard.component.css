@@ -1,0 +1,67 @@
+.weekly-plan-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.day-column {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.day-header {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.day-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.section {
+  margin-top: 10px;
+}
+
+  .section h4 {
+    margin-bottom: 4px;
+    font-size: 1em;
+    color: #333;
+  }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 🔻 MEDIA QUERIES FOR RESPONSIVENESS */
+
+@media (max-width: 1200px) {
+  .weekly-plan-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .weekly-plan-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .weekly-plan-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .weekly-plan-container {
+    grid-template-columns: 1fr;
+  }
+}

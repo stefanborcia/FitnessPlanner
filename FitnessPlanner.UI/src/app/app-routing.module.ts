@@ -23,6 +23,11 @@ const routes: Routes = [
       import('./auth/register/register.component').then(m => m.RegisterComponent)
   },
   {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent)
+  },
+  {
     path: 'plans',
     children: [
       {
@@ -67,9 +72,6 @@ const routes: Routes = [
     redirectTo: ''
   }
 ];
-
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

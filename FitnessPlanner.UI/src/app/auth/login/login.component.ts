@@ -20,10 +20,16 @@ export class LoginComponent {
   login() {
     this.authService.login(this.payload).subscribe({
       next: (res: { token: string }) => {
+        console.log('Received token:', res.token);
         this.authService.storeToken(res.token);
-        this.router.navigate(['/dashboard']);
+
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 100);
       },
-      error: () => (this.errorMessage = 'Invalid credentials'),
+      error: () => {
+        this.errorMessage = 'Invalid credentials';
+      }
     });
   }
 }

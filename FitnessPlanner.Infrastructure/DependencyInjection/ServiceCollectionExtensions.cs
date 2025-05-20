@@ -26,6 +26,7 @@ namespace FitnessPlanner.Infrastructure.DependencyInjection
             // Services
             services.AddScoped<IWorkoutPlanService, WorkoutPlanService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IPlanService, PlanService>();
 
             // Auth utilities
             services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();

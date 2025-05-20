@@ -5,18 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FitnessPlanner.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/workoutplans")]
     [ApiController]
-    public class PlanController : ControllerBase
+    public class WorkoutPlanController : ControllerBase
     {
         private readonly IWorkoutPlanService _workoutService;
 
-        public PlanController(IWorkoutPlanService workoutService)
+        public WorkoutPlanController(IWorkoutPlanService workoutService)
         {
             _workoutService = workoutService;
         }
 
-        // CREATE
         [HttpPost]
         public async Task<IActionResult> SaveWorkoutPlan([FromBody] PlanRequestDto request)
         {
@@ -31,8 +30,6 @@ namespace FitnessPlanner.API.Controllers
             }
         }
 
-
-        // READ all
         [HttpGet]
         public async Task<IActionResult> GetAllPlans()
         {
@@ -40,7 +37,6 @@ namespace FitnessPlanner.API.Controllers
             return Ok(plans);
         }
 
-        // READ by ID
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPlanById(int id)
         {
@@ -49,7 +45,6 @@ namespace FitnessPlanner.API.Controllers
             return Ok(plan);
         }
 
-        // UPDATE
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePlan(int id, [FromBody] WorkoutPlanDto updatedPlan)
         {
@@ -61,7 +56,6 @@ namespace FitnessPlanner.API.Controllers
             return NoContent();
         }
 
-        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlan(int id)
         {

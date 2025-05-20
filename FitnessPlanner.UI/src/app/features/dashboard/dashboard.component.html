@@ -1,0 +1,29 @@
+<div class="weekly-plan-container">
+  <div class="day-column" *ngFor="let day of weeklyPlan">
+    <div class="day-header">
+      {{ day.date | date: 'EEEE' }} <!-- e.g., Monday -->
+    </div>
+    <div class="day-date">
+      {{ day.date | date: 'MMM d' }} <!-- e.g., May 20 -->
+    </div>
+
+    <div class="section">
+      <h4>Workout</h4>
+      <p>{{ day.workout || 'No workout planned' }}</p>
+    </div>
+
+    <div class="section">
+      <h4>Meals</h4>
+      <ul>
+        <li *ngFor="let meal of day.meals">{{ meal }}</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h4>Hydration</h4>
+      <ul>
+        <li *ngFor="let time of day.hydrationTimes">{{ time }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

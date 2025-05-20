@@ -1,14 +1,7 @@
-﻿using AutoMapper;
-using FitnessPlanner.Application.DTOs;
-using FitnessPlanner.Application.Interfaces.Repositories;
+﻿using FitnessPlanner.Application.DTOs;
 using FitnessPlanner.Application.Interfaces;
-using FitnessPlanner.Domain.Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+
 
 namespace FitnessPlanner.API.Controllers
 {
@@ -41,9 +34,9 @@ namespace FitnessPlanner.API.Controllers
 
             return Ok(new
             {
-                message = "User successfully logged in.",
+                token = token,
+                message = "User successfully logged in."
             });
         }
-
     }
 }

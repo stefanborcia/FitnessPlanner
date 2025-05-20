@@ -11,5 +11,6 @@ namespace FitnessPlanner.Infrastructure.Data
         public DbSet<WorkoutPlan> WorkoutPlans { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<DayPlan> DayPlans { get; set; }
     }
 }
