@@ -6,6 +6,22 @@ import { PlanListComponent } from './features/plans/plan-list/plan-list.componen
 import { PlanDetailComponent } from './features/plans/plan-detail/plan-detail.component';
 
 const routes: Routes = [
+  {  
+    path: '',
+    loadComponent: () =>
+      import('./features/home/home.component').then(m => m.HomeComponent),
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./auth/login/login.component').then(m => m.LoginComponent)
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./auth/register/register.component').then(m => m.RegisterComponent)
+  },
   {
     path: 'plans',
     children: [
@@ -45,12 +61,6 @@ const routes: Routes = [
           import('./features/plans/plan-detail/plan-detail.component').then(m => m.PlanDetailComponent)
       }
     ]
-  },
-  {
-    path: '',
-    loadComponent: () =>
-      import('./features/home/home.component').then(m => m.HomeComponent),
-    pathMatch: 'full'
   },
   {
     path: '**',

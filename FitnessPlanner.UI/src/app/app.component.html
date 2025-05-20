@@ -6,17 +6,27 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/plans/create" routerLinkActive="active">Create Plan</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/plans/list" routerLinkActive="active">View Plans</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/plans/custom" routerLinkActive="active">Custom Plan</a>
+      </li>
+      <li class="nav-item" *ngIf="getUserRole() === 'Premium'">
+        <a class="nav-link" routerLink="/plans/premium" routerLinkActive="active">Premium Plan</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" href="#" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>

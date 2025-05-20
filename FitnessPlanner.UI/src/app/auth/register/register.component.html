@@ -1,0 +1,30 @@
+<div class="auth-page">
+  <div class="auth-form">
+    <h2>Register</h2>
+    <form (submit)="register(); $event.preventDefault()">
+      <input type="email" [(ngModel)]="payload.email" name="email" placeholder="Email" required />
+      <input type="password" [(ngModel)]="payload.password" name="password" placeholder="Password" required />
+
+      <select [(ngModel)]="payload.goal" name="goal">
+        <option>BuildMuscle</option>
+        <option>LoseWeight</option>
+        <option>Tone</option>
+      </select>
+
+      <select [(ngModel)]="payload.bodyType" name="bodyType">
+        <option>Ectomorph</option>
+        <option>Mesomorph</option>
+        <option>Endomorph</option>
+      </select>
+
+      <select [(ngModel)]="payload.subscription" name="subscription">
+        <option>Standard</option>
+        <option>Premium</option>
+        <option>Personalized</option>
+      </select>
+
+      <button type="submit">Register</button>
+      <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+    </form>
+  </div>
+</div>
