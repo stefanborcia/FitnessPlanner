@@ -1,12 +1,11 @@
 ﻿using FitnessPlanner.Domain.Enums;
 
-namespace FitnessPlanner.Domain.Entities
+namespace FitnessPlanner.Application.DTOs
 {
-    public class User
+    public class RegisterDto
     {
-        public int Id { get; set; }
         public string Email { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
         public FitnessGoal Goal { get; set; }
         public BodyType BodyType { get; set; }
         public SubscriptionType Subscription { get; set; }

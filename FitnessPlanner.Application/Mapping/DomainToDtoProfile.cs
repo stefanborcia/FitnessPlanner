@@ -14,6 +14,7 @@ namespace FitnessPlanner.Application.Mapping
 
             CreateMap<Exercise, ExerciseDto>();
             CreateMap<WorkoutPlan, WorkoutPlanDto>();
+            CreateMap<RegisterDto, User>();
         }
     }
 }

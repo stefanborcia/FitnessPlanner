@@ -1,6 +1,9 @@
 using FitnessPlanner.Application.DependencyInjection;
+using FitnessPlanner.Application.Validators;
 using FitnessPlanner.Infrastructure.DependencyInjection;
 using System.Text.Json.Serialization;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +17,11 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add Clean Architecture services
+// FluentValidation registration
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
+builder.Services.AddFluentValidationAutoValidation();
+
+// AddApplicationServices & AddInfrastructureServices
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
